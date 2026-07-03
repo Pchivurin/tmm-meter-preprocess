@@ -1,7 +1,0 @@
-# Nixpacks: системні бібліотеки, потрібні opencv-python-headless на Railway
-[phases.setup]
-nixPkgs = ["python311", "gcc"]
-aptPkgs = ["libgl1", "libglib2.0-0"]
-
-[start]
-cmd = "uvicorn main:app --host 0.0.0.0 --port $PORT"
