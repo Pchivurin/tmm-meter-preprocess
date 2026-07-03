@@ -1,0 +1,11 @@
+# Nixpacks конфіг для сервіса препроцесингу (OpenCV + FastAPI)
+
+[phases.setup]
+nixPkgs = ["python311"]
+aptPkgs = ["libgl1", "libglib2.0-0"]
+
+[phases.install]
+cmds = ["python -m venv /opt/venv && . /opt/venv/bin/activate && pip install -r requirements.txt"]
+
+[start]
+cmd = ". /opt/venv/bin/activate && uvicorn main:app --host 0.0.0.0 --port $PORT"
